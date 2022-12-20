@@ -8,7 +8,7 @@ def homepage():
     return render_template("index.html")
 
 
-@app.route('/<string:name>')
+
 
 @app.route('/<name>')
 def greeting(name):
@@ -17,6 +17,11 @@ def greeting(name):
     age = requests.get(f"https://api.agify.io?name={name}").json()['age']
     return render_template("index.html", year=year, name=name, gender=gender, age=age)
 
+
+@app.route('/blog')
+def blog():
+    all_post = requests.get("https://api.npoint.io/c790b4d5cab58020d391").json()
+    return render_template("blog.html", posts=all_post, greeting=greeting)
 
 if __name__ == "__main__":
     app.run(debug=True)
