@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+<body>
+<h1>My Library</h1>
+    <ul>
+     {% if not dict %} <!-- check if dict is empty -->
+    <p>Library is empty.</p>
+{% else %}
+    <ul>
+{% for book in dict %}
+    <li>{{ book.title }}, {{ book.author }}, {{ book.review }} </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+    </ul>
+    
+<a href="">Add New Book</a>
+</body>
+</html>
